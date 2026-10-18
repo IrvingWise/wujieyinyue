@@ -1,1 +1,73 @@
-<placeholder-index>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>无界音乐 - 音乐无界，同好相聚</title>
+  <meta name="description" content="无界音乐：基于 GitHub 的无服务器音乐社区，找到你的艺人圈子，发帖畅聊。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎵</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.5/dist/purify.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#/" class="logo">
+        <span class="logo-note">♪</span>
+        <span class="logo-text">无界音乐</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="#/" data-route="home">首页</a>
+        <a href="#/categories" data-route="categories">分类</a>
+        <a href="#/circles" data-route="circles">艺人圈子</a>
+        <a href="#/announcements" data-route="announcements">公告</a>
+        <a href="#/official" data-route="official">官方</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#/new" class="btn btn-primary btn-post">✏️ 发帖</a>
+        <button class="btn btn-ghost" id="tokenBtn" title="设置 GitHub Token（可选）">⚙️</button>
+        <button class="nav-toggle" id="navToggle" aria-label="菜单">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="wrap">
+    <div class="loading"><span class="spinner"></span>加载中…</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>🎵 无界音乐 · 音乐无界，同好相聚</p>
+      <p class="muted">本站为开源社区实验项目，全部数据存储于
+        <a id="repoLink" href="#" target="_blank" rel="noopener">GitHub Issues</a>，
+        网页托管于 GitHub Pages，无需任何服务器。
+      </p>
+    </div>
+  </footer>
+
+  <!-- Token 设置弹窗 -->
+  <div class="modal-mask" id="tokenModal" hidden>
+    <div class="modal">
+      <h3>GitHub Token 设置（可选）</h3>
+      <p class="muted small">
+        不设置 Token 也可以浏览全部内容；发帖 / 评论会跳转到 GitHub 页面完成。<br>
+        设置 Token 后可直接在站内发帖、评论。Token 仅保存在你自己浏览器的 localStorage 中。
+      </p>
+      <p class="muted small">
+        在 GitHub → Settings → Developer settings → Personal access tokens 生成，
+        勾选 <code>public_repo</code> 权限即可。
+      </p>
+      <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxx" autocomplete="off">
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="tokenClear">清除</button>
+        <button class="btn btn-ghost" id="tokenCancel">取消</button>
+        <button class="btn btn-primary" id="tokenSave">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
