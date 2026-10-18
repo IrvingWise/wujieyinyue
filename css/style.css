@@ -195,6 +195,7 @@ code { background: #00000055; padding: 1px 6px; border-radius: 6px; font-size: 1
 
 /* ===== 弹窗 ===== */
 .modal-mask { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: grid; place-items: center; z-index: 100; backdrop-filter: blur(4px); }
+.modal-mask[hidden] { display: none; }
 .modal { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 26px; width: min(480px, 92vw); }
 .modal h3 { margin-bottom: 12px; }
 .modal p { margin-bottom: 10px; }
